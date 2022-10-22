@@ -12,6 +12,7 @@ public class Prestaçoes {
     public Prestaçoes(LocalDate data, Double valor) {
         this.data = data;
         this.valor = valor;
+
     }
 
     public LocalDate getData() {
@@ -29,6 +30,7 @@ public class Prestaçoes {
     public void setValor(Double valor) {
         this.valor = valor;
     }
+
 
     @Override
     public String toString() {

@@ -1,28 +1,34 @@
 package entidades;
 
+import excecoes.DominioExcecoes;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Contrato {
 
-    private Integer numero;
+    private String nome;
     private LocalDate data;
     private Double totalValor;
     private List<Prestaçoes>lista = new ArrayList<>();
 
-    public Contrato(Integer numero, LocalDate data, Double totalValor) {
-        this.numero = numero;
+    public Contrato(String nome, LocalDate data, Double totalValor) {
+        LocalDate hoje = LocalDate.now();
+        if(!data.isAfter(hoje)){
+            throw new DominioExcecoes("Erro: Entre com data futura");
+        }
         this.data = data;
         this.totalValor = totalValor;
+        this.nome = nome;
     }
 
-    public Integer getNumero() {
-        return numero;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNumero(Integer numero) {
-        this.numero = numero;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public LocalDate getData() {
